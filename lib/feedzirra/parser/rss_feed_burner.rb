@@ -8,9 +8,8 @@ module Feedzirra
       element :title
       element :description
       element :link, :as => :url
+      element :"atom10:link", :as => :feed_url, :value => :href, :with => {:rel => "self"}
       elements :item, :as => :entries, :class => RSSFeedBurnerEntry
-
-      attr_accessor :feed_url
 
       def self.able_to_parse?(xml) #:nodoc:
         (/\<rss|\<rdf/ =~ xml) && (/feedburner/ =~ xml)
