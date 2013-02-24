@@ -40,13 +40,8 @@ describe Feedzirra::Parser::AtomFeedBurner do
       @feed.feed_url.should == "http://feeds.feedburner.com/PaulDixExplainsNothing"
     end
 
-    it "should parse no hub urls" do
-      @feed.hubs.count.should == 0
-    end
-
     it "should parse hub urls" do
-      feed_with_hub = Feedzirra::Parser::AtomFeedBurner.parse(load_sample("TypePadNews.xml"))
-      feed_with_hub.hubs.count.should == 1
+      @feed.hubs.count.should == 2
     end
 
     it "should parse entries" do
